@@ -3,16 +3,22 @@
         <div class="content">
             <span class="logo"><a hidefocus="true" href="#/discover">网抑云音乐</a></span>
             <TabList :active="active" :tabList="tabList" />
+            <Avatar />
+            <Search />
         </div>
     </div>
 </template>
 
 <script>
     import TabList from "./components/TabList"
+    import Avatar from "./components/Avatar"
+    import Search from "./components/Search"
     export default {
         name: "TopBar",
         components: {
-            TabList
+            TabList,
+            Avatar,
+            Search
         },
         data(){
             return {
@@ -27,13 +33,13 @@
                     path: "friend"
                 },{
                     name: "音乐人",
-                    path: "??"
+                    path: "https://music.163.com/st/musician",
+                    target: "_blank"
                 }]
             }
         },
         computed: {
             active(){
-                console.log(this.$route.meta.active)
                 return this.$route.meta.active;
             }
         }

@@ -9,19 +9,34 @@ export const routers = [{
     redirect: 'discover',
     children: [{
         path: "discover",
-        name: "Discover",
+        name: "discover",
         meta: { active:"discover" },
         component: () => import("../views/discover/index/index")
     },{
         path: "discover/topList",
-        name: "TopList",
+        name: "topList",
         meta: { active:"discover" },
         component: () => import("../views/discover/topList/")
     },{
-        path: "playList",
-        name: "PlayList",
+        path: "discover/playList",
+        name: "playList",
         meta: { active:"discover" },
-        component: () => import("../views/discover/topList/")
+        component: () => import("../views/discover/playList/")
+    },{
+        path: "discover/djradio",
+        name: "djradio",
+        meta: { active:"discover" },
+        component: () => import("../views/discover/djradio/")
+    },{
+        path: "discover/artist",
+        name: "artist",
+        meta: { active:"discover" },
+        component: () => import("../views/discover/artist/")
+    },{
+        path: "discover/album",
+        name: "album",
+        meta: { active:"discover" },
+        component: () => import("../views/discover/album/")
     }]
 },{
     path: "/myMusic",

@@ -1,9 +1,9 @@
 <template>
     <ul class="nav">
-        <li v-for="tab in tabList" @click="handleLink(tab.path)">
+        <li v-for="tab in tabList" @click="handleLink(tab)">
             <a :class="{active: tab.path===active}">
                 <em>{{tab.name}}</em>
-                <sub></sub>
+                <sub v-if="tab.path===active"></sub>
             </a>
         </li>
     </ul>
@@ -15,7 +15,9 @@
         props: {
             tabList: {
                 type: Array,
-                default: []
+                default: function () {
+                    return []
+                }
             },
             active: {
                 type: String,
@@ -23,8 +25,12 @@
             }
         },
         methods: {
-            handleLink(path){
-                this.$router.push(path)
+            handleLink(tab){
+                if(tab.target){
+                    window.open(tab.path)
+                } else {
+                    this.$router.push(tab.path)
+                }
             }
         }
     }
@@ -37,6 +43,7 @@
         li{
             float: left;
             cursor: pointer;
+            position: relative;
             a{
                 float: left;
                 padding: 0 19px;
@@ -53,6 +60,17 @@
             em{
                 height: 70px;
                 float: left;
+            }
+            sub{
+                display: block;
+                position: absolute;
+                left: 50%;
+                top: 64px;
+                width: 12px;
+                height: 7px;
+                margin-left: -6px;
+                overflow: hidden;
+                background: url(../../../image/topbar.png) no-repeat -226px 0;
             }
         }
     }
