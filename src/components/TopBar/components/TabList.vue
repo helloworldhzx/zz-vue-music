@@ -1,9 +1,9 @@
 <template>
     <ul class="nav">
         <li v-for="tab in tabList" @click="handleLink(tab)">
-            <a :class="{active: tab.path===active}">
+            <a :class="{active: tab.key===active}">
                 <em>{{tab.name}}</em>
-                <sub v-if="tab.path===active"></sub>
+                <sub v-if="tab.key===active"></sub>
             </a>
         </li>
     </ul>

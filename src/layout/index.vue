@@ -3,6 +3,8 @@
         <TopBar />
         <Nav />
         <router-view />
+        <el-backtop />
+        <player />
     </div>
 </template>
 

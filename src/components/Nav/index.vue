@@ -1,15 +1,15 @@
 <template>
     <div>
-        <div class="nav-discover">
+        <div v-if="active === 'discover'" class="nav-discover">
             <div class="sub-wrapper">
                 <ul class="sub">
                     <li v-for="item in navList" @click="handleLink(item)">
-                        <a :class="{active: active === item.key}">{{item.name}}</a>
+                        <a :class="{active: navActive === item.key}">{{item.name}}</a>
                     </li>
                 </ul>
             </div>
         </div>
-        <!--<div class="nav-other" />-->
+        <div v-if="active !== 'discover'" class="nav-other" />
     </div>
 </template>
 
@@ -46,9 +46,12 @@
             }
         },
         computed: {
-            active(){
+            navActive(){
                 console.log(this.$route)
                 return this.$route.name;
+            },
+            active(){
+                return this.$route.meta.active;
             }
         },
         methods: {
@@ -66,7 +69,7 @@
         background: #C20C0C;
         border-bottom: 1px solid #a40011;
         .sub-wrapper{
-            width: $base-content-width;
+            width: $base-top-width;
             margin: 0 auto;
             .sub{
                 margin-left: 180px;

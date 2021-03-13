@@ -24,13 +24,16 @@
             return {
                 tabList: [{
                     name: "发现音乐",
-                    path: "discover"
+                    path: "/discover",
+                    key: "discover"
                 },{
                     name: "我的音乐",
-                    path: "myMusic"
+                    path: "/myMusic",
+                    key: "myMusic"
                 },{
                     name: "朋友",
-                    path: "friend"
+                    path: "/friend",
+                    key: "friend"
                 },{
                     name: "音乐人",
                     path: "https://music.163.com/st/musician",
@@ -55,7 +58,7 @@
         background: #242424;
         border-bottom: 1px solid #000;
         .content{
-            width: $base-content-width;
+            width: $base-top-width;
             margin: 0 auto;
             .logo{
                 margin: 0;
